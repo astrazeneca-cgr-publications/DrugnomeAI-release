@@ -1,0 +1,8 @@
+n_estimators
+max_features sqrt
+max_depth
+min_samples_leaf 4
+min_samples_split 5
+subsample 0.8
+learning_rate
+verbose 0
