@@ -1,4 +1,4 @@
-# drugnomeAI
+# DrugnomeAI
 
 
 - [Introduction](#introduction) 
@@ -10,15 +10,15 @@
 
 Introduction
 ============
-`drugnomeAI` is an adapatation of `mantis-ml` that provides both disease-agnostic and disease-specific gene druggability framework, implementing stochastic semi-supervised learning on top of `scikit-learn` and `keras`/`tensorflow`.  
-`drugnome` takes its name from a contraction of the druggable genome.
+`DrugnomeAI` is an adapatation of `mantis-ml` that provides both disease-agnostic and disease-specific gene druggability framework, implementing stochastic semi-supervised learning on top of `scikit-learn` and `keras`/`tensorflow`.  
+`Drugnome` takes its name from a contraction of the druggable genome.
 
 Installation
 ============
 **Requirements:** `Python3` (tested with v3.6.7)
 
 ```
-git clone https://github.com/AstraZeneca-CGR/drugnomeAI.git
+git clone https://github.com/astrazeneca-cgr-publications/DrugnomeAI-release.git
 sh global_init.sh
 python setup.py install
 ```
@@ -27,7 +27,7 @@ python setup.py install
 
 ---
 
-In either case, it is highly recommended to **create a new virtual environment** (e.g. with `conda`) before installing `drugnomeAI`:
+In either case, it is highly recommended to **create a new virtual environment** (e.g. with `conda`) before installing `DrugnomeAI`:
 ```
 conda create -n drugnome python=3.6
 conda config --append channels conda-forge   	# add conda-forge in the channels list
@@ -40,7 +40,7 @@ conda activate drugnome			                  # activate the newly created conda e
 
 
 You may now call the following scripts from the command line:
-- **`drugnomeai`**: run drugnomeAI druggability score based on a dummy config file (`.yaml`)
+- **`drugnomeai`**: run DrugnomeAI druggability score based on a dummy config file (`.yaml`)
 
 Run each command with `-h` to see all available options.
 
@@ -111,10 +111,10 @@ Other example config files can be found under [example-input](example-input) or 
 <br>
  
 
-### More about drugnomeAI
+### More about DrugnomeAI
  
 #### Labels
-- There are two types of labels available in drugnomeAI - Pharos labels and the ones representing Tiers. Only one type can be be used at once, however it is possible to select multiple labels of the same type for a single run. 
+- There are two types of labels available in DrugnomeAI - Pharos labels and the ones representing Tiers. Only one type can be be used at once, however it is possible to select multiple labels of the same type for a single run. 
 - The available options are the following:
     - Pharos labels:
          - `tclin`: Tclin
@@ -129,11 +129,11 @@ Other example config files can be found under [example-input](example-input) or 
          - `3A`: Tier 3B
 
 Label option may be specified in the following way: `-p tchem` or -t 3A. For multiple choices, use ' ' (space) as a separator, e.g. `-t 1 2 3A` etc.
-In the disease-specific run, labels of a given choice are fetched automatically by drugnome-ai for the genes being associated with the specified disease.
+In the disease-specific run, labels of a given choice are fetched automatically by DrugnomeAI for the genes being associated with the specified disease.
 
 #### Supervised learning models
-- `drugnomeAI` runs 8 different supervised models by default: Extra Trees, Random Forest, SVC, Gradient Boosting, XGBoost, Deep Neural Net, Stacking Classifier and Naive Bayes. 
-- It is also possible to run `drugnomeAI` with the `-f / --fast` option, which will force drugnomeAI to train only 4 classifiers: `Extra Trees`, `Random Forest`, `SVC` and `Gradient Boosting`.
+- `DrugnomeAI` runs 8 different supervised models by default: Extra Trees, Random Forest, SVC, Gradient Boosting, XGBoost, Deep Neural Net, Stacking Classifier and Naive Bayes. 
+- It is also possible to run `DrugnomeAI` with the `-f / --fast` option, which will force DrugnomeAI to train only 4 classifiers: `Extra Trees`, `Random Forest`, `SVC` and `Gradient Boosting`.
 - Additionally, the user may explicitly specify which supervised models to be used for training via the `-s` option. The available model options are coded as follows:
   - `et`: Extra Trees
   - `rf`: Random Forest
@@ -147,19 +147,19 @@ In the disease-specific run, labels of a given choice are fetched automatically 
 Multiple models may be delimited using a ` ` (space) as a separator, e.g. `-s et`, `-s et stack gb` etc. 
 
 #### Data sources and features
-`drugnomeAI` allows to make a choice about features which can be selected from different sets which are the following:
+`DrugnomeAI` allows to make a choice about features which can be selected from different sets which are the following:
     
    - `pharos`: denotes all druggability related features including: Pharos, DGIdb, Reactome, InWeb, CTD, STRINGdb
    - `inter`: InterPro features related to protein families, domains and super-families 
   
- By default, drugnomeAI runs with all the features listed above. However, the feature set can be modified with `-d` option, e.g. `-d inter`.
+ By default, DrugnomeAI runs with all the features listed above. However, the feature set can be modified with `-d` option, e.g. `-d inter`.
  
  The disease-specific analysis, on top of the abovementioned, by default leverages features being specifically related to diseases and they are following:
  GTEx, Protein Atlas, features derived from collapsing analysis of Human Protein Atlas tissue & RNA expression and MsigDB GO.  
  
  The InterPro features can also be selected (choices: dom, fam, sup) by user with the option `-x dom fam` or `--inter-pro dom fam` - note that the options are delimited with space.
    
- There is also an option to extend generic drugnome-ai features with `-m`  or `--mantis-ml` argument. 
+ There is also an option to extend generic DrugnomeAI features with `-m`  or `--mantis-ml` argument. 
    The option `--mantis-ml` denotes attributes derived from `mantis-ml` which includes the following:
     ExAC features, Essential Mouse Genes ones, GnomAD, Genic Intolerance Scores, GWAS & MGI Essential features.
 
@@ -168,9 +168,9 @@ Multiple models may be delimited using a ` ` (space) as a separator, e.g. `-s et
 
 #### Estimated run time
 
-`drugnomeAI` total run time is inversely proportional to the number of known disease-associated (seed) genes (the fewer the seed genes are the more balanced datasets there are to be trained). 
+`DrugnomeAI` total run time is inversely proportional to the number of known disease-associated (seed) genes (the fewer the seed genes are the more balanced datasets there are to be trained). 
 <br>
-Example run times for different numbers of seed genes are given in this table. All results correspond to `drugnomeAI` runs across **10 stochastic iterations**, training with **6 different supervised models** and using **10 cores**.
+Example run times for different numbers of seed genes are given in this table. All results correspond to `DrugnomeAI` runs across **10 stochastic iterations**, training with **6 different supervised models** and using **10 cores**.
 
 | Disease example| Num. of seed genes | Total run time |
 | -------------- | ------------------ | --------------- |
@@ -196,7 +196,7 @@ Representative examples of run times when using the `-f / --fast` option, two cl
 You need to provide an output directory and label choice or these along with a config file (`.yaml`). 
 <br>
 You may also:
-- run specific modules of `drugnomeAI` (option `-r`, default: all) - the available options are:
+- run specific modules of `DrugnomeAI` (option `-r`, default: all) - the available options are:
     - `all`: all modules are run, meaning end-to-end analysis shall be performed
     - `pre`: exploratory data analysis shall be run incl. data cleaning & visualizations
     - `boruta`: feature selection with Boruta algorithms on the already prepared data
@@ -235,7 +235,7 @@ drugnomeai -c Epilepsy_config.yaml -o /tmp/Epilepsy-testing -n 20 -r boruta -p t
 
 
 #### `drugnomeai` Output
-`drugnomeAI` predictions for all genes and across all classifiers can be found at **`[output_dir]/Gene-Predictions`**. 
+`DrugnomeAI` predictions for all genes and across all classifiers can be found at **`[output_dir]/Gene-Predictions`**. 
 <br>
 The `AUC_performance_by_Classifier.pdf` file under the same dir contains information about the AUC performance per classifier and thus informs about the best performing classifier.
 
