@@ -166,26 +166,6 @@ Multiple models may be delimited using a ` ` (space) as a separator, e.g. `-s et
   Another available option is `-l` or `--genic-intol` which allows you to include solely Genic Intolerance Scores out of all the mantis-ml derived features.
     
 
-#### Estimated run time
-
-`DrugnomeAI` total run time is inversely proportional to the number of known disease-associated (seed) genes (the fewer the seed genes are the more balanced datasets there are to be trained). 
-<br>
-Example run times for different numbers of seed genes are given in this table. All results correspond to `DrugnomeAI` runs across **10 stochastic iterations**, training with **6 different supervised models** and using **10 cores**.
-
-| Disease example| Num. of seed genes | Total run time |
-| -------------- | ------------------ | --------------- |
-| Epilepsy | 864 | 2h | 
-| Chronic Kidney Disease | 587 | 2.5h |
-| Amyotrophic Lateral Sclerosis | 77 | 11h |
-
-Representative examples of run times when using the `-f / --fast` option, two classifiers with the `-s` option or just the Stacking classifer are also given below (CKD dataset, 10 stochastic iterations, 10 cores):
-
-| Number of models | Total run time |
-| -------------- |  --------------- |
-| 6 (default) | 2.5h |
-| 4 (`-f`) | 71m |
-| 2 (`-s et,rf`) | 43m | 
-| Stacking (`-s stack`) | 1.5h |
 
 
 <br><br>
