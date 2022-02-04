@@ -171,7 +171,7 @@ Multiple models may be delimited using a ` ` (space) as a separator, e.g. `-s et
 <br><br>
 
 
-drugnomeai
+`drugnomeai`
 ===========
 You need to provide an output directory and label choice or these along with a config file (`.yaml`). 
 <br>
