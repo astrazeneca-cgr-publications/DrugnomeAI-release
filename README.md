@@ -219,6 +219,6 @@ drugnomeai -c Epilepsy_config.yaml -o /tmp/Epilepsy-testing -n 20 -r boruta -p t
 <br>
 The `AUC_performance_by_Classifier.pdf` file under the same dir contains information about the AUC performance per classifier and thus informs about the best performing classifier.
 
-Output figures from all steps during the `mantis-ml` run (e.g. *Exploratory Data Analysis/EDA, supervised-learning, unsupervised-learning*) can be found under **`[output_dir]/Output-Figures`**.
+Output figures from all steps during the `drugnomeai` run (e.g. *Exploratory Data Analysis/EDA, supervised-learning, unsupervised-learning*) can be found under **`[output_dir]/Output-Figures`**.
 
 <br>

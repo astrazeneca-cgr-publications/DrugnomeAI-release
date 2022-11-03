@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages 
 import io
 
-setup(	name='drugnome-AI',
+setup(	name='Drugnome-AI',
 	version='1.0.0',
-	author='James Stainer, Ewa Tulodziecka, Dimitrios Vitsios',
+	author='Arwa Raies, James Stainer, Ewa Tulodziecka, Dimitrios Vitsios',
 	author_email='dimitrios.vitsios@astrazeneca.com',
-	description='drugnomeAI: Target Druggability Prediction from Public Data by Stochastic Semi-Supervised Learning',
+	description='DrugnomeAI: Target Druggability Prediction from Public Data by Stochastic Semi-Supervised Learning',
 	url="https://github.com/AstraZeneca-CGR/drugnomeAI",
 	packages=find_packages(),
 	python_requires='>=3.6',
@@ -35,7 +35,5 @@ setup(	name='drugnome-AI',
                            'docutils==0.14',
                            'pillow==4.0'],
 	include_package_data=True,
-	entry_points={'console_scripts': ['drugnomeai=drugnome_ai.modules.main.__main__:main',
-					  'mantisml-profiler=drugnome_ai.modules.profiler.__main__:main',
-					  'mantisml-overlap=drugnome_ai.modules.hypergeom_enrichment.__main__:main']}
+	entry_points={'console_scripts': ['drugnomeai=drugnome_ai.modules.main.__main__:main']}
 )
