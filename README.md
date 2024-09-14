@@ -2,6 +2,7 @@
 
 
 - [Introduction](#introduction) 
+- [Citation](#citation) 
 - [Installation](#installation) 
 - [Run](#run) 
   - [drugnomeai](#drugnomeai)
@@ -12,6 +13,20 @@ Introduction
 ============
 `DrugnomeAI` is an adapatation of `mantis-ml` that provides both disease-agnostic and disease-specific gene druggability framework, implementing stochastic semi-supervised learning on top of `scikit-learn` and `keras`/`tensorflow`.  
 `Drugnome` takes its name from a contraction of the druggable genome.
+
+<br/>
+
+Citation
+========
+
+[DrugnomeAI is an ensemble machine-learning framework for predicting druggability of candidate drug targets](https://www.nature.com/articles/s42003-022-04245-4)
+<br/>
+Arwa Raies, Ewa Tulodziecka, James Stainer, Lawrence Middleton, Ryan S. Dhindsa, Pamela Hill, Ola Engkvist, Andrew R. Harper, Slavé Petrovski, Dimitrios Vitsios<b><sup>†</sup></b> 
+<br/>
+<b><i>Communications Biology</b></i> Vol. <b>5</b>, 1291 (2022)
+
+<br/>
+
 
 Installation
 ============
